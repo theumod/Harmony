@@ -4,15 +4,15 @@ using System.Reflection.Emit;
 
 namespace HarmonyLib
 {
-	internal class ILInstruction
+	public class ILInstruction
 	{
 		internal int offset;
-		internal OpCode opcode;
-		internal object operand;
+	   public OpCode opcode;
+	   public object operand;
 		internal object argument;
 
 		internal List<Label> labels = new List<Label>();
-		internal List<ExceptionBlock> blocks = new List<ExceptionBlock>();
+		public List<ExceptionBlock> blocks = new List<ExceptionBlock>();
 
 		internal ILInstruction(OpCode opcode, object operand = null)
 		{
@@ -21,7 +21,7 @@ namespace HarmonyLib
 			argument = operand;
 		}
 
-		internal CodeInstruction GetCodeInstruction()
+		public CodeInstruction GetCodeInstruction()
 		{
 			var instr = new CodeInstruction(opcode, argument);
 			if (opcode.OperandType == OperandType.InlineNone)

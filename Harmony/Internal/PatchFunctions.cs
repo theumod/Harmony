@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 namespace HarmonyLib
 {
 	/// <summary>Patch function helpers</summary>
-	internal static class PatchFunctions
+	public static class PatchFunctions
 	{
 		/// <summary>Adds a prefix</summary>
 		/// <param name="patchInfo">The patch info</param>
@@ -122,7 +122,7 @@ namespace HarmonyLib
 		/// <param name="method">The original method</param>
 		/// <returns>The instructions</returns>
 		///
-		internal static List<ILInstruction> GetInstructions(ILGenerator generator, MethodBase method)
+		public static List<ILInstruction> GetInstructions(ILGenerator generator, MethodBase method)
 		{
 			return MethodBodyReader.GetInstructions(generator, method);
 		}
